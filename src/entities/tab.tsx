@@ -10,7 +10,8 @@ interface TabComponentProps extends TabProps {
 }
 
 const Tab: FC<TabComponentProps> = ({ text, image, link, isPinned, onPin }) => {
-  const [showContextMenu, setShowContextMenu] = useState(false);
+  const [showContextMenu, setShowContextMenu] = useState<boolean>(false);
+  const [showText, setShowText] = useState<boolean>(false);
 
   const handleContextMenu = (e: MouseEvent) => {
     e.preventDefault();
@@ -32,7 +33,12 @@ const Tab: FC<TabComponentProps> = ({ text, image, link, isPinned, onPin }) => {
   const imageClasses = isPinned ? 'w-[50px] h-[50px] m-auto' : '';
 
   return (
-    <div onContextMenu={handleContextMenu} className="relative">
+    <div
+      onContextMenu={handleContextMenu}
+      className="relative"
+      onMouseEnter={() => setShowText(true)}
+      onMouseLeave={() => setShowText(false)}
+    >
       <Link href={link}>
         <div className={containerClasses}>
           <Image
@@ -52,6 +58,12 @@ const Tab: FC<TabComponentProps> = ({ text, image, link, isPinned, onPin }) => {
           onClick={handlePinClick}
         >
           {isPinned ? 'Unpin' : 'Pin'}
+        </div>
+      )}
+
+      {showText && isPinned && (
+        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-black text-white text-xs rounded px-2 py-1 ">
+          {text}
         </div>
       )}
     </div>
