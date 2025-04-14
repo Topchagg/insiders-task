@@ -1,26 +1,19 @@
 import { TabProps } from '@/types/tabInterface';
 
 const mockTabs: TabProps[] = [
-  { text: 'Google1', image: '/icons/pin.svg', link: '/test' },
-  { text: 'Google2', image: '/icons/pin.svg', link: '/another' },
-  { text: 'Google3', image: '/icons/pin.svg', link: '/1' },
-  { text: 'Google4', image: '/icons/pin.svg', link: '/2' },
-  { text: 'asdasdasdasdasdasdasdassda', image: '/icons/pin.svg', link: '/3' },
-  { text: 'Google6', image: '/icons/pin.svg', link: '/4' },
-  { text: 'Google7', image: '/icons/pin.svg', link: '/5' },
-  { text: 'Google8', image: '/icons/pin.svg', link: '/6' },
-  { text: 'Google9', image: '/icons/pin.svg', link: '/7' },
-  { text: 'Google10', image: '/icons/pin.svg', link: '/8' },
-  { text: 'Google11', image: '/icons/pin.svg', link: '/9' },
+  { text: 'Dashboard', image: '/icons/dashboard.svg', link: '/test' },
+  { text: 'Banking', image: '/icons/banking.svg', link: '/another' },
+  { text: 'Telefonie', image: '/icons/phone.svg', link: '/1' },
+  { text: 'Accounting', image: '/icons/accounting.svg', link: '/2' },
+  { text: 'Verkauf', image: '/icons/verkauf.svg', link: '/3' },
+  { text: 'Statistik', image: '/icons/statistics.svg', link: '/4' },
+  { text: 'Administration', image: '/icons/settings.svg', link: '/6' },
+  { text: 'Help', image: '/icons/help.svg', link: '/7' },
+  { text: 'Warenbestand', image: '/icons/cube.png', link: '/8' },
+  { text: 'Auswahllisten', image: '/icons/list.png', link: '/9' },
   { text: 'Google22', image: '/icons/pin.svg', link: '/10' },
-  { text: 'Google33', image: '/icons/pin.svg', link: '/11' },
-  { text: 'Google44', image: '/icons/pin.svg', link: '/22' },
-  { text: 'Google55', image: '/icons/pin.svg', link: '/33' },
-  { text: 'Google66', image: '/icons/pin.svg', link: '/44' },
-  { text: 'Google77', image: '/icons/pin.svg', link: '/55' },
-  { text: 'Google88', image: '/icons/pin.svg', link: '/66' },
-  { text: 'Google99', image: '/icons/pin.svg', link: '/77' },
-  { text: 'Google100', image: '/icons/pin.svg', link: '/89' },
+  { text: 'Einkauf', image: '/icons/cart.svg', link: '/11' },
+  { text: 'Rechn', image: '/icons/rechn.svg', link: '/22' },
 ];
 
 export default mockTabs;

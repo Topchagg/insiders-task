@@ -31,7 +31,7 @@ const Tab: FC<TabComponentProps> = ({
   const isActive = currentPath === link;
 
   const containerClasses = `
-    w-[100%] h-[50px] flex items-center gap-2 px-3 py-2 hover:bg-gray-300
+    w-[100%] h-[50px] flex items-center gap-2 px-3 py-2 hover:bg-gray-300 color-gray
     transition-all duration-300 cursor-pointer active:bg-[#7F858D] overflow-hidden
     ${isActive ? 'bg-blue-50 border-t-blue-400 border-t-2' : 'bg-white'}
   `;
