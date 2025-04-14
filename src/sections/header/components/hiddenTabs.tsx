@@ -59,7 +59,11 @@ const HiddenTabs: FC<HiddenTabsProps> = ({
                       {...provided.dragHandleProps}
                       className="m-0 m-auto w-[100%] "
                     >
-                      <Tab {...item} onPin={onPin} />
+                      <Tab
+                        currentPath={currentPathname}
+                        {...item}
+                        onPin={onPin}
+                      />
                     </div>
                   )}
                 </Draggable>

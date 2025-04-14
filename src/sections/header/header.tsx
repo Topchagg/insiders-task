@@ -145,6 +145,7 @@ const Header = () => {
             itemsAmount={itemsAmount}
             tabs={tabs}
             setFunction={setIsShowMenu}
+            currentPathname={pathname}
           />
         )}
       </header>
