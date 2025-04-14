@@ -33,7 +33,7 @@ const Tab: FC<TabComponentProps> = ({
   const containerClasses = `
     w-[100%] h-[50px] flex items-center gap-2 px-3 py-2 
     transition-all duration-300 cursor-pointer hover:scale-95 active:bg-[#7F858D] overflow-hidden
-    ${isActive ? 'bg-blue-50' : 'bg-white'}
+    ${isActive ? 'bg-blue-50 border-t-blue-400 border-t-2' : 'bg-white'}
   `;
 
   const imageClasses = isPinned ? 'w-[32px] h-[32px] m-auto' : '';
@@ -46,7 +46,7 @@ const Tab: FC<TabComponentProps> = ({
       onMouseLeave={() => setShowText(false)}
     >
       <Link href={link}>
-        <div className={`${containerClasses} border-red-500`}>
+        <div className={`${containerClasses} `}>
           <Image
             className={imageClasses}
             width={isPinned ? 40 : 24}

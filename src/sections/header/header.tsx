@@ -103,6 +103,7 @@ const Header = () => {
                     >
                       {(provided) => (
                         <div
+                          className="w-[100px]"
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
