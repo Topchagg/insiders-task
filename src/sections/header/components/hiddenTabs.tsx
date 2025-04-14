@@ -10,6 +10,7 @@ interface HiddenTabsProps {
   tabs: TabProps[];
   itemsAmount: number;
   onPin: (text: string) => void;
+  currentPathname?: string;
 }
 
 const HiddenTabs: FC<HiddenTabsProps> = ({
@@ -17,27 +18,30 @@ const HiddenTabs: FC<HiddenTabsProps> = ({
   itemsAmount,
   tabs,
   onPin,
+  currentPathname,
 }) => {
   return (
-    <div className="absolute right-10 mt-2 bg-white border rounded-lg shadow-lg z-50 w-[300px] max-h-[400px] overflow-y-auto p-2">
-      <div className="font-semibold text-gray-700 text-center py-2">
-        Hidden Tabs
-      </div>
+    <div className="absolute right-10 mt-2 bg-white rounded-lg shadow-lg z-50 w-[250px] max-h-[400px] overflow-y-auto p-2">
+      <div className="font-semibold text-gray-700 text-center py-2"></div>
       <Droppable droppableId="tabs-hidden" direction="vertical">
         {(provided) => (
           <div
             ref={provided.innerRef}
             {...provided.droppableProps}
-            className="flex flex-col gap-2"
+            className="flex flex-col gap-2 w-[100%]"
           >
             {tabs.slice(itemsAmount).map((item, index) => {
               if (item.isPinned) {
                 return (
                   <div
                     key={item.text}
-                    className="m-0 m-auto opacity-70 cursor-default"
+                    className="m-0 m-auto opacity-70 pb-8 cursor-default w-[100%]"
                   >
-                    <Tab {...item} onPin={onPin} />
+                    <Tab
+                      currentPath={currentPathname}
+                      {...item}
+                      onPin={onPin}
+                    />
                   </div>
                 );
               }
@@ -53,7 +57,7 @@ const HiddenTabs: FC<HiddenTabsProps> = ({
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
-                      className="m-0 m-auto"
+                      className="m-0 m-auto w-[100%] "
                     >
                       <Tab {...item} onPin={onPin} />
                     </div>

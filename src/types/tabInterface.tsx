@@ -3,4 +3,5 @@ export interface TabProps {
   image: string;
   link: string;
   isPinned?: boolean;
+  currentPath?: string;
 }

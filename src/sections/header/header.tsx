@@ -8,6 +8,9 @@ import {
   DropResult,
 } from '@hello-pangea/dnd';
 
+import { usePathname } from 'next/navigation';
+import Image from 'next/image';
+
 import Tab from '@/entities/tab';
 import HiddenTabs from './components/hiddenTabs';
 
@@ -21,6 +24,7 @@ const Header = () => {
   const [isShowMenu, setIsShowMenu] = useState(false);
 
   const width = useScreenSize();
+  const pathname = usePathname();
 
   useEffect(() => {
     const getAmountByWidth = () => {
@@ -77,8 +81,8 @@ const Header = () => {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <header className="w-[95%] m-auto pt-10 overflow-hidden h-[200px]">
-        <div className="flex border p-1 md:p-5 justify-around bg-blue-50">
+      <header className="w-[95%] m-auto pt-10 h-[200px] text-black">
+        <div className="flex p-1 md:p-5 justify-center items-center bg-blue-50">
           <Droppable droppableId="tabs" direction="horizontal">
             {(provided) => (
               <div
@@ -103,7 +107,11 @@ const Header = () => {
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
                         >
-                          <Tab {...tab} onPin={handlePinToggle} />
+                          <Tab
+                            {...tab}
+                            onPin={handlePinToggle}
+                            currentPath={pathname}
+                          />
                         </div>
                       )}
                     </Draggable>
@@ -116,10 +124,16 @@ const Header = () => {
 
           {hasHiddenTabs && (
             <button
-              onClick={() => setIsShowMenu(true)}
-              className="text-[10px] md:text-[16px] border rounded-4xl p-1 md:p-2 bg-black text-white cursor-pointer active:scale-[0.9] transition-all duration-300"
+              onClick={() => setIsShowMenu(!isShowMenu)}
+              className="text-sm w-[50px] h-[50px] flex justify-center items-center p-2 cursor-pointer active:scale-95 transition-all duration-300"
             >
-              Hidden tabs
+              <Image
+                className="w-[30px] h-[30px] bg-[#4690E2]"
+                height={30}
+                width={30}
+                src={'/icons/up-arrow.svg'}
+                alt="up arrow"
+              />
             </button>
           )}
         </div>
