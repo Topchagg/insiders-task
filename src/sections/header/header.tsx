@@ -46,12 +46,16 @@ const Header = () => {
   const handleDragEnd = (result: DropResult) => {
     if (!result.destination) return;
 
-    const updatedTabs = [...tabs];
-    const [movedTab] = updatedTabs.splice(result.source.index, 1);
-    updatedTabs.splice(result.destination.index, 0, movedTab);
+    const items = [...tabs];
+    const [moved] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, moved);
 
-    setTabs(updatedTabs);
-    localStorage.setItem('tabs', JSON.stringify(updatedTabs));
+    const pinned = items.filter((tab) => tab.isPinned);
+    const unpinned = items.filter((tab) => !tab.isPinned);
+    const reordered = [...pinned, ...unpinned];
+
+    setTabs(reordered);
+    localStorage.setItem('tabs', JSON.stringify(reordered));
   };
 
   const handlePinToggle = (text: string) => {
